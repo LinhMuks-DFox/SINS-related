@@ -89,9 +89,8 @@ def download_task(task: DownloadTask, dry_run: bool):
     if dry_run:
         print(f"[MOCK] curl -L -C - -o {task.full_path()} {task.url}")
         return None
-    # Uncomment the following line for actual download
-    # return subprocess.Popen(['curl', '-L', '-C', '-', '-o', task.full_path(), task.url])
-    return None
+    print(f"[START] curl -L -C - -o {task.full_path()} {task.url}")
+    return subprocess.Popen(['curl', '-L', '-C', '-', '-sS', '-o', task.full_path(), task.url])
 
 
 def run_scheduler(tasks: List[DownloadTask], dry_run: bool, max_concurrent: int, sleep_time: int):
