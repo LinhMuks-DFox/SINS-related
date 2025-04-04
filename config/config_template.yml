@@ -1,0 +1,6 @@
+email:
+  from: <>
+  to: <>
+  password: <>
+  smtp_host: smtp.gmail.com # smtp.gmail.com
+  smtp_port: 587 # 587
